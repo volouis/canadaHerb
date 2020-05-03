@@ -13,10 +13,15 @@ var items = {
         "Yute Leaves"
     ],
     fruitNameViet: [
-        "","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",
+        "Mit To Nu","Chuoi Su","Thanh Long","Sau Rieng","Xoai Tuong","Xoai Cac","Mit Thai lan","Tao Thai","Trai Tac","Chom Chom Nhan",
+        "Bon Bon","Trai Vai","Mang Cut","Trai Sua","Chom Chom Thai","Man Do","Sapoche","Nhan Hot Tieu","Mang Cau Xiem","Mang Cau Dai",
+        "Xoai Thai","Man Trang"
     ],
     vegetableNameViet: [
-        "","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",
+        "Sà Om","Cà Thái","Ngai Bún","Mang Tuoi","Bap Chuoi Bào","La Trau","Trai Cao","Bong So Dua","Bong Thien Ly","Rau Muong Bao",
+        "Rau Que","Ngo Gai","Rau Dang","Quan Am Truc","Rau Ram","Vap Ca","Cu Nghe","Bay Capao","Ot Tron","King Gioi","Itu","La Chanh",
+        "Sau Dau","Bong Sau Dau","Rau Nhut","Hung Lui","La Dua","Rau Bo Ngot","Rau Ma","Hung Cay","La Lop","Rau Muong Cay","Ot Hiem Do",
+        "Tia To","Chuoi Chat","Samek Leaf","Bac Ha","Teru Leaf","Thyme","Cu Nghe","La Vang","Mong Toi","Rau Can Nuoc","Ngo Om","Dau Rong","Yanang","Rau Day"
     ],
     fruitPic: [
         "babyJackFruits","cookingBanana","dragonFruit","durian","elephantMango","hoaLocMango","jackFruit","jujubee","kalamadin",
