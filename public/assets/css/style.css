@@ -1,9 +1,43 @@
 #content{
-    padding-top: 50px;
-    max-width: 1000px;
+    max-width: 100%;
     margin: auto;
 }
 
 .typeBtn{
     margin: auto;
+}
+
+.header{
+    position: fixed;
+    z-index:1000;
+    background-color:rgb(40,167,69);
+    padding: 20px;
+}
+
+.amInput{
+    width: 10px;
+}
+
+.addToCart{
+    margin: 5px;
+}
+
+.card{
+    top: 100px;
+    margin: 10px;
+    float: left;
+}
+
+.cartTable{
+    position: fixed;
+    top: 100px;
+}
+
+/* #itemList{
+    height: 400px;
+    overflow: scroll;
+} */
+
+#custInfo{
+    position: fixed;
 }

@@ -1,3 +1,31 @@
+//node module
+
+
+// const nodemailer = require('nodemailer');
+
+        // var transporter = nodemailer.createTransport({
+        //     service: 'gmail',
+        //     auth: {
+        //     user: 'louisvcam@gmail.com',
+        //     pass: 'Litoironman1!'
+        //     }
+        // });
+        
+        // var mailOptions = {
+        //     from: 'louisvcam@gmail.com',
+        //     to: 'louisqvo@gmail.com',
+        //     subject: 'Sending Email using Node.js',
+        //     text: 'That was easy!'
+        // };
+        
+        // transporter.sendMail(mailOptions, function(error, info){
+        //     if (error) {
+        //     console.log(error);
+        //     } else {
+        //     console.log('Email sent: ' + info.response);
+        //     }
+        // });
+
 //list of products
 var items = {
     fruitName: [
@@ -47,14 +75,14 @@ $(document).ready(function(){
     $(`.cartTable`).hide();
     // for(var i = 0; i < 1; i++){
         for(var i = 0; i < items.fruitName.length; i++){
-            var itemBox = $(`<div class="card" style="width: 18rem;">`)
+            var itemBox = $(`<div class="card" style="width: 10rem;">`)
             
             var itemBody = $(`<div class="card-body">`)
 
             var image = $(`<img src="public/assets/img/fruits/${items.fruitPic[i]}.png" class="card-img-top" alt="Responsive image">`)
-            var itemName = $(`<h5>${items.fruitName[i]} - ${items.fruitNameViet[i]}</h5>`);
+            var itemName = $(`<h8>${items.fruitName[i]} - ${items.fruitNameViet[i]}</h8>`);
             var itemMatch = items.fruitName[i].split(' ').join('');
-            var amtInp = $(`<input type="number" class="form-control ${itemMatch}" placeholder="Amount of Box" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
+            var amtInp = $(`<input type="number" class="form-control ${itemMatch} amInput" style="font-size: 10px;" placeholder="Amount of Box" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
             var addBtn = $(`<button type="button" class="btn btn-success addToCart" data-item="${items.fruitName[i]} - ${items.fruitNameViet[i]}" data-match="${items.fruitName[i]}" data-type="fruit">Add to Cart</button>`);
 
             itemBody.append(itemName);
@@ -72,17 +100,18 @@ $(document).ready(function(){
 // This function will show the user all fruits when they click the fruit button 
 $('.fruitBtn').on('click', function() {
     $(`.cartTable`).hide();
+    $(`#custInfo`).empty();
     $('#item').empty();
     // for(var i = 0; i < 1; i++){
         for(var i = 0; i < items.fruitName.length; i++){
-            var itemBox = $(`<div class="card" style="width: 18rem;">`)
+            var itemBox = $(`<div class="card" style="width: 10rem;">`)
             
             var itemBody = $(`<div class="card-body">`)
 
             var image = $(`<img src="public/assets/img/fruits/${items.fruitPic[i]}.png" class="card-img-top" alt="Responsive image">`)
-            var itemName = $(`<h5>${items.fruitName[i]} - ${items.fruitNameViet[i]}</h5>`);
+            var itemName = $(`<h8>${items.fruitName[i]} - ${items.fruitNameViet[i]}</h8>`);
             var itemMatch = items.fruitName[i].split(' ').join('');
-            var amtInp = $(`<input type="number" class="form-control ${itemMatch}" placeholder="Amount of Box" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
+            var amtInp = $(`<input type="number" class="form-control ${itemMatch} amInput" placeholder="Amount of Box" style="font-size: 10px;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
             var addBtn = $(`<button type="button" class="btn btn-success addToCart" data-item="${items.fruitName[i]} - ${items.fruitNameViet[i]}" data-match="${items.fruitName[i]}" data-type="fruit">Add to Cart</button>`);
 
             itemBody.append(itemName);
@@ -100,17 +129,18 @@ $('.fruitBtn').on('click', function() {
 // This function will show the user all vegetable when they click the vegetable button 
 $('.vegBtn').on('click', function() {
     $(`.cartTable`).hide();
+    $(`#custInfo`).empty();
     $('#item').empty();
     // for(var i = 0; i < 1; i++){
             for(var i = 0; i < items.vegetableName.length; i++){
-        var itemBox = $(`<div class="card" style="width: 18rem;">`)
+        var itemBox = $(`<div class="card" style="width: 10rem;">`)
             
             var itemBody = $(`<div class="card-body">`)
 
             var image = $(`<img src="public/assets/img/vegetables/${items.vegetablePic[i]}.png" class="card-img-top" alt="Responsive image">`)
-            var itemName = $(`<h5>${items.vegetableName[i]} - ${items.vegetableNameViet[i]}</h5>`);
+            var itemName = $(`<h8>${items.vegetableName[i]} - ${items.vegetableNameViet[i]}</h8>`);
             var itemMatch = items.vegetableName[i].split(' ').join('');
-            var amtInp = $(`<input type="number" class="form-control ${itemMatch}" placeholder="Amount in Pounds" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
+            var amtInp = $(`<input type="number" class="form-control ${itemMatch} amInput" placeholder="Amount in Pounds" aria-label="Sizing example input" style="font-size: 10px;" aria-describedby="inputGroup-sizing-sm">`);
             var addBtn = $(`<button type="button" class="btn btn-success addToCart" data-item="${items.vegetableName[i]} - ${items.vegetableNameViet[i]}" data-match="${items.vegetableName[i]}" data-type="vegetable">Add to Cart</button>`);
 
             itemBody.append(itemName);
@@ -132,18 +162,16 @@ $(document).on('click', 'button.addToCart',function() {
     var preAmo = $(this).attr('data-match').split(' ').join('');
     var type = $(this).attr('data-type')
     var amount = $("." + preAmo).val();
-    var totAmount = 0;
-
-    var addToCart = {"type": type, "product" : item, "quantity" : amount};
-
-    cart.push(addToCart);
-    console.log(cart)
-    $("." + preAmo).val('');
-
-    for(var i = 0; i < cart.length; i++){
-        totAmount += parseInt(cart[i]["quantity"]);
+    if(amount > 0){
+    
+        var addToCart = {"type": type, "product" : item, "quantity" : amount};
+    
+        cart.push(addToCart);
+        console.log(cart)
+        $("." + preAmo).val('');
     }
-    $('.cartBtn').text('Cart ' + totAmount)
+
+    cartTotal()
 })
 
 //this function will show the page when the user clicks on the Cart
@@ -153,23 +181,75 @@ $('.cartBtn').on('click', function() {
     $(`.cartTable`).show();
     $('#item').empty();
 
-    var companyName = $(`<input type="text" class="form-control " placeholder="Company Name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
-    var address = $(`<input type="text" class="form-control " placeholder="Address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
-    var phone = $(`<input type="number" class="form-control " placeholder="Phone" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
-    var email = $(`<input type="email" class="form-control " placeholder="Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
-    var submit = $(`<button type="button" class="btn btn-success">Submit</button>`);
+    itemList()
+    custForm()
+})
 
+//button to increase item quantity
+$(document).on('click', 'button.inAmo',function() {
+    cart[$(this).attr('data-item')]['quantity'] = parseInt(cart[$(this).attr('data-item')]["quantity"]) + 1
+    itemList()
+    cartTotal()
+})
+
+//button to decrease item quantity
+$(document).on('click', 'button.deAmo',function() {
+    cart[$(this).attr('data-item')]['quantity'] = parseInt(cart[$(this).attr('data-item')]["quantity"]) - 1
+    itemList()
+    cartTotal()
+})
+
+//button to submit order
+$(document).on('click', 'button#subOrder',function() {
+    console.log($(`#companyName`).val(), 
+    $(`#address`).val(),
+    $(`#phone`).val(),
+    $(`#email`).val())
+
+})
+
+//cart total button change 
+function cartTotal() {
+    var totAmount = 0;
     for(var i = 0; i < cart.length; i++){
-        var row = $(`<tr>`)
-        var col = $(`<td>${i + 1}</td><td>${cart[i]['type']}</td><td>${cart[i]['product']}</td><td>${cart[i]['quantity']}</td>`)
-
-        row.append(col)
-        $(`tbody`).append(row);
+        totAmount += parseInt(cart[i]["quantity"]);
     }
+    $('.cartBtn').text('Cart ' + totAmount)
+}
+
+//Customer form
+function custForm() {
+    var companyName = $(`<input id="companyName" type="text" class="form-control " placeholder="Company Name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
+    var address = $(`<input id="address" type="text" class="form-control " placeholder="Address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
+    var phone = $(`<input id="phone" type="number" class="form-control " placeholder="Phone" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
+    var email = $(`<input id="email" type="email" class="form-control " placeholder="Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
+    var submit = $(`<button type="button" id="subOrder" class="btn btn-success">Submit Order</button>`);
+
+    var custlength = 150 + (110 * cart.length)
+    $(`#custInfo`).attr("style", "top: " + custlength + "px");
 
     $(`#custInfo`).append(companyName)
     $(`#custInfo`).append(address)
     $(`#custInfo`).append(phone)
     $(`#custInfo`).append(email)
     $(`#custInfo`).append(submit)
-})
+}
+
+//show the list of item in the cart page
+function itemList() {
+    $(`#itemList`).empty();
+    for(var i = 0; i < cart.length; i++){
+        var row = $(`<tr>`)
+        var col = $(`
+            <td>${i + 1}</td>
+            <td>${cart[i]['type']}</td>
+            <td>${cart[i]['product']}</td>
+            <td>${cart[i]['quantity']}
+                <button type="button" class="btn btn-dark inAmo" data-item="${i}">></button>
+                <button type="button" class="btn btn-dark deAmo" data-item="${i}"><</button>
+            </td>`)
+
+        row.append(col)
+        $(`tbody`).append(row);
+    }
+}
