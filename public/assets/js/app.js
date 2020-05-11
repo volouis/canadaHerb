@@ -48,7 +48,7 @@ var items = {
     ],
     vegetableNameViet: [
         "Sà Om","Cà Thái","Ngai Bún","Mang Tuoi","Bap Chuoi Bào","La Trau","Trai Cao","Bong So Dua","Bong Thien Ly","Rau Muong Bao",
-        "Rau Que","Ngo Gai","Rau Dang","Quan Am Truc","Rau Ram","Vap Ca","Cu Nghe","Bay Capao","Ot Tron","King Gioi","Itu","La Chanh",
+        "Rau Que","Ngo Gai","Rau Dang","Quan Am Truc","Rau Ram","Vap Ca","Cu Nghe","Bay Capao","Ot Tron","Itu","La Chanh",
         "Sau Dau","Bong Sau Dau","Rau Nhut","Hung Lui","La Dua","Rau Bo Ngot","Rau Ma","Hung Cay","La Lop","Rau Muong Cay","Ot Hiem Do",
         "Tia To","Chuoi Chat","Samek Leaf","Bac Ha","Teru Leaf","Thyme","Cu Nghe","La Vang","Mong Toi","Rau Can Nuoc","Ngo Om","Dau Rong","Yanang","Rau Day"
     ],
@@ -60,7 +60,7 @@ var items = {
     vegetablePic: [
         "acacia","babyEggplant","balingale","bambooShoot","bananaFlowerSlices","bitterLeaves","bitterNut","bongSoDua","bongThienLy",
         "chineseGlory","cinnamonBasil","culantro","dangLeaves","draceana","fingerMint","fishMint","galanga","holyBasil",
-        "jamacaiPepper","lemonBasil","lemonLeaves","magosa","magosa","mimosa","mint","pananous","parWan","PennyWort","pepperMint",
+        "jamacaiPepper","lemonBasil","lemonLeaves","magosa","magosaFlower","mimosa","mint","pananous","parWan","PennyWort","pepperMint",
         "pocketLeaves","rauMuongCay","redChili","redMint","saladBanana","samekLeaf","tarostem","teruleaf","thyme","turmaric","vangLeaves",
         "vietnameseSpinach","waterCelery","waterMint","wingBeans","yanangLeaves","yuteLeaves"
     ]
