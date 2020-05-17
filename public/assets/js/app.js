@@ -60,8 +60,8 @@ var items = {
     vegetablePic: [
         "acacia","babyEggplant","balingale","bambooShoot","bananaFlowerSlices","bitterLeaves","bitterNut","bongSoDua","bongThienLy",
         "chineseGlory","cinnamonBasil","culantro","dangLeaves","draceana","fingerMint","fishMint","galanga","holyBasil",
-        "jamacaiPepper","lemonBasil","lemonLeaves","magosa","magosaFlower","mimosa","mint","pananous","parWan","PennyWort","pepperMint",
-        "pocketLeaves","rauMuongCay","redChili","redMint","saladBanana","samekLeaf","tarostem","teruleaf","thyme","turmaric","vangLeaves",
+        "jamacaiPepper","lemonBasil","lemonLeaves","magosa","magosaFlower","mimosa","mint","pananous","parWan","pennyWort","pepperMint",
+        "pocketLeaves","rauMuongCay","redChili","redMint","saladBanana","samekLeaf","tarostem","teruLeaf","thyme","turmaric","vangLeaves",
         "vietnameseSpinach","waterCelery","waterMint","wingBeans","yanangLeaves","yuteLeaves"
     ]
 }
@@ -205,6 +205,16 @@ $(document).on('click', 'button#subOrder',function() {
     $(`#address`).val(),
     $(`#phone`).val(),
     $(`#email`).val())
+
+    Email.send({
+        SecureToken : "9ffa2841-8880-4012-8761-15d6c162e225",
+        To : 'louisvcam@gmail.com',
+        From : "louisvcam@gmail.com",
+        Subject : "This is the subject",
+        Body : "And this is the body"
+    }).then(
+      message => alert(message)
+    );
 
 })
 
