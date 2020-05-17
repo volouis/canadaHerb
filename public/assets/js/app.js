@@ -262,4 +262,5 @@ function itemList() {
         row.append(col)
         $(`tbody`).append(row);
     }
+    console.log(cart)
 }
