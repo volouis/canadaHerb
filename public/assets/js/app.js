@@ -45,11 +45,6 @@ $(`#custInfo`).hide();
 
 //when the page opens first thing the user will see
 $(document).ready(function(){
-    $(`.cartTable`).hide();
-    $(`#custInfo`).hide();
-
-    
-    // for(var i = 0; i < 1; i++){
         for(var i = 0; i < items.fruitName.length; i++){
             var itemBox = $(`<div class="card" style="width: 10rem;">`)
             
@@ -71,16 +66,13 @@ $(document).ready(function(){
 
             $("#item").append(itemBox);
         }
-    
 })
 
 // This function will show the user all fruits when they click the fruit button 
 $('.fruitBtn').on('click', function() {
     $(`.cartTable`).hide();
     $(`#custInfo`).hide();
-    // $(`#custInfo`).empty();
     $('#item').empty();
-    // for(var i = 0; i < 1; i++){
         for(var i = 0; i < items.fruitName.length; i++){
             var itemBox = $(`<div class="card" style="width: 10rem;">`)
             
@@ -109,7 +101,6 @@ $('.vegBtn').on('click', function() {
     $(`.cartTable`).hide();
     $(`#custInfo`).hide();
     $('#item').empty();
-    // for(var i = 0; i < 1; i++){
             for(var i = 0; i < items.vegetableName.length; i++){
         var itemBox = $(`<div class="card" style="width: 10rem;">`)
             
