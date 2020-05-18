@@ -182,6 +182,7 @@ function updateOrder() {
         orderList += `Type:${cart[i]['type']}, Product: ${cart[i]['product']}, Quantity: ${cart[i]['quantity']}
         `
     }
+    $(`#emailSubject`).val(`New Order: ${$(`#companyName`).val()}`)
 
     $(`#orderForm`).text(`
     Company Name: ${$(`#companyName`).val()}
