@@ -73,6 +73,7 @@ var cart = [];
 //when the page opens first thing the user will see
 $(document).ready(function(){
     $(`.cartTable`).hide();
+    $(`#custInfo`).hide();
     // for(var i = 0; i < 1; i++){
         for(var i = 0; i < items.fruitName.length; i++){
             var itemBox = $(`<div class="card" style="width: 10rem;">`)
@@ -95,12 +96,15 @@ $(document).ready(function(){
 
             $("#item").append(itemBox);
         }
+        // $(`#orderForm`).text(`${$(`#companyName`).val()},${$(`#address`).val()},${$(`#phone`).val()},${$(`#email`).val()},${cart}`)
+    
 })
 
 // This function will show the user all fruits when they click the fruit button 
 $('.fruitBtn').on('click', function() {
     $(`.cartTable`).hide();
-    $(`#custInfo`).empty();
+    $(`#custInfo`).hide();
+    // $(`#custInfo`).empty();
     $('#item').empty();
     // for(var i = 0; i < 1; i++){
         for(var i = 0; i < items.fruitName.length; i++){
@@ -129,7 +133,7 @@ $('.fruitBtn').on('click', function() {
 // This function will show the user all vegetable when they click the vegetable button 
 $('.vegBtn').on('click', function() {
     $(`.cartTable`).hide();
-    $(`#custInfo`).empty();
+    $(`#custInfo`).hide();
     $('#item').empty();
     // for(var i = 0; i < 1; i++){
             for(var i = 0; i < items.vegetableName.length; i++){
@@ -149,7 +153,6 @@ $('.vegBtn').on('click', function() {
 
             itemBox.append(image);
             itemBox.append(itemBody);
-
 
             $("#item").append(itemBox);
 
@@ -172,31 +175,35 @@ $(document).on('click', 'button.addToCart',function() {
     }
 
     cartTotal()
+    updateOrder()
 })
 
 //this function will show the page when the user clicks on the Cart
 $('.cartBtn').on('click', function() {
     $(`tbody`).empty();
-    $(`#custInfo`).empty();
+    // $(`#custInfo`).empty();
     $(`.cartTable`).show();
     $('#item').empty();
 
     itemList()
     custForm()
+    $(`#custInfo`).show();    
 })
 
 //button to increase item quantity
 $(document).on('click', 'button.inAmo',function() {
     cart[$(this).attr('data-item')]['quantity'] = parseInt(cart[$(this).attr('data-item')]["quantity"]) + 1
-    itemList()
-    cartTotal()
+    itemList();
+    cartTotal();
+    updateOrder();
 })
 
 //button to decrease item quantity
 $(document).on('click', 'button.deAmo',function() {
     cart[$(this).attr('data-item')]['quantity'] = parseInt(cart[$(this).attr('data-item')]["quantity"]) - 1
-    itemList()
-    cartTotal()
+    itemList();
+    cartTotal();
+    updateOrder();
 })
 
 //button to submit order
@@ -206,17 +213,30 @@ $(document).on('click', 'button#subOrder',function() {
     $(`#phone`).val(),
     $(`#email`).val())
 
-    Email.send({
-        SecureToken : "9ffa2841-8880-4012-8761-15d6c162e225",
-        To : 'louisvcam@gmail.com',
-        From : "louisvcam@gmail.com",
-        Subject : "This is the subject",
-        Body : "And this is the body"
-    }).then(
-      message => alert(message)
-    );
+
 
 })
+
+$('.form-control').on('input', function() {
+    updateOrder()
+});
+
+function updateOrder() {
+    var orderList = "";
+    
+    for(var i = 0; i < cart.length; i++) {
+        orderList += `Type:${cart[i]['type']}, Product: ${cart[i]['product']}, Quantity: ${cart[i]['quantity']}
+        `
+    }
+
+    $(`#orderForm`).text(`
+    Company Name: ${$(`#companyName`).val()}
+    Address: ${$(`#address`).val()}
+    Phone: ${$(`#phone`).val()}
+    Email: ${$(`#email`).val()}
+    ${orderList}
+    `)
+}
 
 //cart total button change 
 function cartTotal() {
@@ -229,20 +249,11 @@ function cartTotal() {
 
 //Customer form
 function custForm() {
-    var companyName = $(`<input id="companyName" type="text" class="form-control " placeholder="Company Name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
-    var address = $(`<input id="address" type="text" class="form-control " placeholder="Address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
-    var phone = $(`<input id="phone" type="number" class="form-control " placeholder="Phone" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
-    var email = $(`<input id="email" type="email" class="form-control " placeholder="Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">`);
-    var submit = $(`<button type="button" id="subOrder" class="btn btn-success">Submit Order</button>`);
 
     var custlength = 150 + (110 * cart.length)
+
     $(`#custInfo`).attr("style", "top: " + custlength + "px");
 
-    $(`#custInfo`).append(companyName)
-    $(`#custInfo`).append(address)
-    $(`#custInfo`).append(phone)
-    $(`#custInfo`).append(email)
-    $(`#custInfo`).append(submit)
 }
 
 //show the list of item in the cart page
@@ -262,5 +273,4 @@ function itemList() {
         row.append(col)
         $(`tbody`).append(row);
     }
-    console.log(cart)
 }
