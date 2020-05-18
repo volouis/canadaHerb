@@ -68,12 +68,15 @@ var items = {
 
 //Global variable
 var cart = [];
-
+$(`.cartTable`).hide();
+$(`#custInfo`).hide();
 
 //when the page opens first thing the user will see
 $(document).ready(function(){
     $(`.cartTable`).hide();
-    $(`#custInfo`).hide();
+$(`#custInfo`).hide();
+
+    
     // for(var i = 0; i < 1; i++){
         for(var i = 0; i < items.fruitName.length; i++){
             var itemBox = $(`<div class="card" style="width: 10rem;">`)
@@ -96,7 +99,6 @@ $(document).ready(function(){
 
             $("#item").append(itemBox);
         }
-        // $(`#orderForm`).text(`${$(`#companyName`).val()},${$(`#address`).val()},${$(`#phone`).val()},${$(`#email`).val()},${cart}`)
     
 })
 
@@ -204,17 +206,6 @@ $(document).on('click', 'button.deAmo',function() {
     itemList();
     cartTotal();
     updateOrder();
-})
-
-//button to submit order
-$(document).on('click', 'button#subOrder',function() {
-    console.log($(`#companyName`).val(), 
-    $(`#address`).val(),
-    $(`#phone`).val(),
-    $(`#email`).val())
-
-
-
 })
 
 $('.form-control').on('input', function() {
