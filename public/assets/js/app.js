@@ -1,31 +1,3 @@
-//node module
-
-
-// const nodemailer = require('nodemailer');
-
-        // var transporter = nodemailer.createTransport({
-        //     service: 'gmail',
-        //     auth: {
-        //     user: 'louisvcam@gmail.com',
-        //     pass: 'Litoironman1!'
-        //     }
-        // });
-        
-        // var mailOptions = {
-        //     from: 'louisvcam@gmail.com',
-        //     to: 'louisqvo@gmail.com',
-        //     subject: 'Sending Email using Node.js',
-        //     text: 'That was easy!'
-        // };
-        
-        // transporter.sendMail(mailOptions, function(error, info){
-        //     if (error) {
-        //     console.log(error);
-        //     } else {
-        //     console.log('Email sent: ' + info.response);
-        //     }
-        // });
-
 //list of products
 var items = {
     fruitName: [
@@ -74,7 +46,7 @@ $(`#custInfo`).hide();
 //when the page opens first thing the user will see
 $(document).ready(function(){
     $(`.cartTable`).hide();
-$(`#custInfo`).hide();
+    $(`#custInfo`).hide();
 
     
     // for(var i = 0; i < 1; i++){
