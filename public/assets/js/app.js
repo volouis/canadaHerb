@@ -8,7 +8,7 @@ var items = {
     vegetableName: [
         "Acacia","Baby Eggplant","Balingale","BambooShoot","Banana Flower Slices","Bitter Leaves","Bitter Nut","Bong So Dua",
         "Bong Thien Ly","Chinese Glory","Cinnamon Basil","Culantro","Dang Leaves","Draceana","Finger Mint","Fish Mint","Galanga",
-        "Holy Basil","Jamacai Pepper","Lemon Basil","Lemon Leaves","Magosa","Magosa Flower","Mimosa","Mint","Pananous","Par Wan",
+        "Holy Basil","Jamacai Pepper","Lemon Balm","Lemon Basil","Lemon Leaves","Magosa","Magosa Flower","Mimosa","Mint","Pananous","Par Wan",
         "Penny Wort","Pepper Mint","Pocket Leaves","Rau Moung Cay","Red Chilli","Red Mint","Salad Banana","Samek Leaf","Taro Stem",
         "Teru Leaf","Thyme","Tumaric","Vang Leaves","Vietnamese Spinach","Water Celery","Water Mint","Wing Bean","Yanang Leaves",
         "Yute Leaves"
@@ -20,7 +20,7 @@ var items = {
     ],
     vegetableNameViet: [
         "Sà Om","Cà Thái","Ngai Bún","Mang Tuoi","Bap Chuoi Bào","La Trau","Trai Cao","Bong So Dua","Bong Thien Ly","Rau Muong Bao",
-        "Rau Que","Ngo Gai","Rau Dang","Quan Am Truc","Rau Ram","Vap Ca","Cu Nghe","Bay Capao","Ot Tron","Itu","La Chanh",
+        "Rau Que","Ngo Gai","Rau Dang","Quan Am Truc","Rau Ram","Vap Ca","Cu Nghe","Bay Capao","Ot Tron","Kinh Gioi","Itu","La Chanh",
         "Sau Dau","Bong Sau Dau","Rau Nhut","Hung Lui","La Dua","Rau Bo Ngot","Rau Ma","Hung Cay","La Lop","Rau Muong Cay","Ot Hiem Do",
         "Tia To","Chuoi Chat","Samek Leaf","Bac Ha","Teru Leaf","Thyme","Cu Nghe","La Vang","Mong Toi","Rau Can Nuoc","Ngo Om","Dau Rong","Yanang","Rau Day"
     ],
@@ -32,7 +32,7 @@ var items = {
     vegetablePic: [
         "acacia","babyEggplant","balingale","bambooShoot","bananaFlowerSlices","bitterLeaves","bitterNut","bongSoDua","bongThienLy",
         "chineseGlory","cinnamonBasil","culantro","dangLeaves","draceana","fingerMint","fishMint","galanga","holyBasil",
-        "jamacaiPepper","lemonBasil","lemonLeaves","magosa","magosaFlower","mimosa","mint","pananous","parWan","pennyWort","pepperMint",
+        "jamacaiPepper","lemonBalm","lemonBasil","lemonLeaves","magosa","magosaFlower","mimosa","mint","pananous","parWan","pennyWort","pepperMint",
         "pocketLeaves","rauMuongCay","redChili","redMint","saladBanana","samekLeaf","tarostem","teruLeaf","thyme","turmaric","vangLeaves",
         "vietnameseSpinach","waterCelery","waterMint","wingBeans","yanangLeaves","yuteLeaves"
     ]
@@ -182,13 +182,12 @@ function updateOrder() {
         orderList += `Type:${cart[i]['type']}, Product: ${cart[i]['product']}, Quantity: ${cart[i]['quantity']}
         `
     }
-    $(`#emailSubject`).val(`New Order: ${$(`#companyName`).val()}`)
+    $(`#emailSubject`).val(`Canada Herb New Order: ${$(`#companyName`).val()}`)
 
     $(`#orderForm`).text(`
     Company Name: ${$(`#companyName`).val()}
-    Address: ${$(`#address`).val()}
+    Person Full Name: ${$(`#personName`).val()}
     Phone: ${$(`#phone`).val()}
-    Email: ${$(`#email`).val()}
     ${orderList}
     `)
 }
