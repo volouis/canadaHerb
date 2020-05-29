@@ -20,7 +20,7 @@ var items = {
     ],
     vegetableNameViet: [
         "Sà Om","Cà Thái","Ngai Bún","Mang Tuoi","Bap Chuoi Bào","La Trau","Trai Cao","Bong So Dua","Bong Thien Ly","Rau Muong Bao",
-        "Rau Que","Ngo Gai","Rau Dang","Quan Am Truc","Rau Ram","Vap Ca","Cu Nghe","Bay Capao","Ot Tron","Kinh Gioi","Itu","La Chanh",
+        "Rau Que","Ngo Gai","Rau Dang","Quan Am Truc","Rau Ram","Vap Ca","Cu Rieng","Bay Capao","Ot Tron","Kinh Gioi","Itu","La Chanh",
         "Sau Dau","Bong Sau Dau","Rau Nhut","Hung Lui","La Dua","Rau Bo Ngot","Rau Ma","Hung Cay","La Lop","Rau Muong Cay","Ot Hiem Do",
         "Tia To","Chuoi Chat","Samek Leaf","Bac Ha","Teru Leaf","Thyme","Cu Nghe","La Vang","Mong Toi","Rau Can Nuoc","Ngo Om","Dau Rong","Yanang","Rau Day"
     ],
