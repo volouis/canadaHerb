@@ -42,6 +42,7 @@ var items = {
 var cart = [];
 $(`.cartTable`).hide();
 $(`#custInfo`).hide();
+$(`#pickDate`).hide();
 
 //when the page opens first thing the user will see
 $(document).ready(function(){
@@ -70,6 +71,7 @@ $(document).ready(function(){
 
 // This function will show the user all fruits when they click the fruit button 
 $('.fruitBtn').on('click', function() {
+    $(`.header`).attr("style", "position: fixed")
     $(`.cartTable`).hide();
     $(`#custInfo`).hide();
     $('#item').empty();
@@ -98,6 +100,7 @@ $('.fruitBtn').on('click', function() {
 
 // This function will show the user all vegetable when they click the vegetable button 
 $('.vegBtn').on('click', function() {
+    $(`.header`).attr("style", "position: fixed")
     $(`.cartTable`).hide();
     $(`#custInfo`).hide();
     $('#item').empty();
@@ -145,6 +148,7 @@ $(document).on('click', 'button.addToCart',function() {
 
 //this function will show the page when the user clicks on the Cart
 $('.cartBtn').on('click', function() {
+    $(`.header`).attr("style", "position: inherit")
     $(`tbody`).empty();
     // $(`#custInfo`).empty();
     $(`.cartTable`).show();
@@ -175,6 +179,16 @@ $('.form-control').on('input', function() {
     updateOrder()
 });
 
+$(document).on('change', 'select#orderType',function() {
+    console.log($(`#pickDate`).val())
+    if($(`#orderType`).val() === "Pick Up"){
+        $(`#pickDate`).show();
+    }else {
+        $(`#pickDate`).hide();
+    }
+})
+
+//Oder message sent
 function updateOrder() {
     var orderList = "";
     
@@ -188,6 +202,8 @@ function updateOrder() {
     Company Name: ${$(`#companyName`).val()}
     Person Full Name: ${$(`#personName`).val()}
     Phone: ${$(`#phone`).val()}
+    Order Type: ${$(`#orderType`).val()}
+    Pick Up Date: ${$(`#pickDate`).val()}
     ${orderList}
     `)
 }
@@ -201,7 +217,7 @@ function cartTotal() {
     $('.cartBtn').text('Cart ' + totAmount)
 }
 
-//Customer form
+//Customer form CSS position
 function custForm() {
 
     var custlength = 150 + (110 * cart.length)
