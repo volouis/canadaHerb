@@ -175,9 +175,13 @@ $(document).on('click', 'button.deAmo',function() {
     updateOrder();
 })
 
-$('.form-control').on('change', function() {
+$('.inputField').keypress(function() {
     updateOrder()
 });
+
+$(document).on('click', '.inputField',function() {
+    updateOrder();
+})
 
 $(document).on('click', 'button.inputField',function() {
     updateOrder();
