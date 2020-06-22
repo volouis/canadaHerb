@@ -175,9 +175,13 @@ $(document).on('click', 'button.deAmo',function() {
     updateOrder();
 })
 
-$('.form-control').on('input', function() {
+$('.form-control').on('change', function() {
     updateOrder()
 });
+
+$(document).on('click', 'button.inputField',function() {
+    updateOrder();
+})
 
 $(document).on('change', 'select#orderType',function() {
     console.log($(`#pickDate`).val())
